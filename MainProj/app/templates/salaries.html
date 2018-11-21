@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% for departament in company %}
+<h1>Depart #{{ departament.id }} {{ departament.name }}</h1>
+<table>
+    {% for team in departament.teams %}
+    <tr>
+        <td>
+            <h2>Team #{{ team.id }} {{ team.name }}</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Second name</th>
+                    <th>Position</th>
+                    <th>Experience</th>
+                    <th>Salary</th>
+                </tr>
+                {% for employee in team.employees %}
+                <tr>
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.sname }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.exp }}</td>
+                    <td>{{ employee.salary }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
+</body>
+</html>
